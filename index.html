@@ -3,61 +3,908 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Climate Intelligence for Heatwave Monitoring</title>
+
+  <title>Climate Intelligence | Heatwave Monitoring & Early Warning</title>
+
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ===== Additional styling for the enhanced homepage ===== */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      width: min(1150px, 92vw);
+      margin: 35px auto;
+    }
+
+    .hero-card {
+      padding: 35px;
+    }
+
+    .hero-card h1 {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    .hero-card p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #475569;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .feature-grid {
+      width: min(1150px, 92vw);
+      margin: 25px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+    }
+
+    .feature-card p {
+      line-height: 1.6;
+      color: #64748b;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-section {
+      width: min(1150px, 92vw);
+      margin: 30px auto;
+    }
+
+    .dashboard-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .risk-high {
+      color: #dc2626;
+    }
+
+    .risk-medium {
+      color: #ea580c;
+    }
+
+    .risk-low {
+      color: #16a34a;
+    }
+
+    .workflow {
+      width: min(1150px, 92vw);
+      margin: 35px auto;
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .workflow-step {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .workflow-number {
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #0f4c5c;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .account-section {
+      width: min(1150px, 92vw);
+      margin: 35px auto;
+    }
+
+    .account-card {
+      text-align: center;
+      padding: 35px;
+    }
+
+    .account-card h2 {
+      margin-top: 0;
+    }
+
+    .status-bar {
+      width: min(1150px, 92vw);
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+    }
+
+    .online-status {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .online-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workflow-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-preview {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .feature-grid,
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card h1 {
+        font-size: 1.8rem;
+      }
+
+      .status-bar {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+
   <header class="topbar">
-    <div class="brand">Climate Intelligence</div>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="monitoring.html">Monitoring</a>
-      <a href="prediction.html">Prediction</a>
-      <a href="warning.html">Early Warning</a>
-      <a href="impact.html">Impact & Action</a>
+
+    <div class="brand" id="siteLogo">
+      Climate Intelligence
+    </div>
+
+    <nav id="mainNavigation">
+
+      <a href="index.html"
+         class="active"
+         id="homeLink">
+        Home
+      </a>
+
+      <a href="monitoring.html"
+         id="monitoringLink">
+        Monitoring
+      </a>
+
+      <a href="prediction.html"
+         id="predictionLink">
+        Prediction
+      </a>
+
+      <a href="warning.html"
+         id="warningLink">
+        Early Warning
+      </a>
+
+      <a href="impact.html"
+         id="impactLink">
+        Impact & Action
+      </a>
+
+      <a href="dashboard.html"
+         id="dashboardLink">
+        Dashboard
+      </a>
+
+      <a href="alerts.html"
+         id="alertsLink">
+        Alerts
+      </a>
+
+      <a href="profile.html"
+         id="profileLink">
+        Profile
+      </a>
+
+      <a href="login.html"
+         id="loginLink">
+        Login
+      </a>
+
     </nav>
+
   </header>
 
-  <main class="hero">
-    <section class="card hero-card">
-      <h1>Climate Intelligence for Heatwave Monitoring, Prediction, and Early Warning</h1>
-      <p>
-        A multi-page educational website showing how climate data, weather models, and alert systems
-        can help communities prepare for extreme heat.
-      </p>
-      <div class="cta-row">
-        <a class="btn" href="monitoring.html">Explore the Website</a>
-        <a class="btn secondary" href="https://github.com" target="_blank" rel="noreferrer">Host with GitHub Pages</a>
-      </div>
-    </section>
 
-    <aside class="card stats">
-      <h2>Why it matters</h2>
-      <ul>
-        <li>Tracks temperature, humidity, and heat index</li>
-        <li>Uses forecasts to anticipate dangerous conditions</li>
-        <li>Sends warnings before health risks escalate</li>
-      </ul>
-    </aside>
-  </main>
+  <!-- =========================================================
+       SYSTEM STATUS
+  ========================================================== -->
 
-  <section class="grid">
-    <article class="card">
-      <h3>Monitoring</h3>
-      <p>Collect data from satellites, weather stations, and sensors.</p>
-    </article>
-    <article class="card">
-      <h3>Prediction</h3>
-      <p>Use machine learning and numerical weather models to forecast heatwaves.</p>
-    </article>
-    <article class="card">
-      <h3>Early Warning</h3>
-      <p>Trigger alerts for schools, hospitals, and local authorities.</p>
-    </article>
+  <section class="status-bar" id="systemStatus">
+
+    <span>
+      Climate Intelligence System
+    </span>
+
+    <span class="online-status" id="systemOnlineStatus">
+      <span class="online-dot"></span>
+      System Online
+    </span>
+
   </section>
 
+
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================== -->
+
+  <main class="hero">
+
+    <section class="card hero-card">
+
+      <h1 id="heroTitle">
+        Climate Intelligence for Heatwave Monitoring,
+        Prediction, and Early Warning
+      </h1>
+
+      <p id="heroDescription">
+
+        A climate intelligence platform that combines
+        weather monitoring, heatwave prediction,
+        risk assessment, and early warning information
+        to help communities prepare for extreme heat.
+
+      </p>
+
+      <div class="cta-row">
+
+        <a
+          href="monitoring.html"
+          class="btn"
+          id="exploreMonitoringBtn">
+
+          Explore Monitoring
+
+        </a>
+
+        <a
+          href="prediction.html"
+          class="btn"
+          id="predictHeatwaveBtn">
+
+          Predict Heatwave
+
+        </a>
+
+        <a
+          href="dashboard.html"
+          class="btn secondary"
+          id="openDashboardBtn">
+
+          Open Dashboard
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHY IT MATTERS -->
+
+    <aside class="card stats" id="whyItMatters">
+
+      <h2>
+        Why It Matters
+      </h2>
+
+      <ul>
+
+        <li>
+          Tracks temperature and humidity
+        </li>
+
+        <li>
+          Calculates heatwave risk
+        </li>
+
+        <li>
+          Identifies high-risk locations
+        </li>
+
+        <li>
+          Provides early warnings
+        </li>
+
+        <li>
+          Supports preventive action
+        </li>
+
+      </ul>
+
+    </aside>
+
+  </main>
+
+
+  <!-- =========================================================
+       MAIN FEATURES
+  ========================================================== -->
+
+  <section class="feature-grid">
+
+
+    <!-- MONITORING -->
+
+    <article class="card feature-card"
+             id="monitoringFeature">
+
+      <div class="feature-icon">
+        🌡️
+      </div>
+
+      <h3>
+        Heatwave Monitoring
+      </h3>
+
+      <p>
+        Monitor temperature, humidity, weather
+        conditions and other environmental
+        indicators.
+      </p>
+
+      <a
+        href="monitoring.html"
+        class="btn"
+        id="monitoringFeatureBtn">
+
+        View Monitoring
+
+      </a>
+
+    </article>
+
+
+    <!-- PREDICTION -->
+
+    <article class="card feature-card"
+             id="predictionFeature">
+
+      <div class="feature-icon">
+        🔮
+      </div>
+
+      <h3>
+        Heatwave Prediction
+      </h3>
+
+      <p>
+        Analyse climate trends and weather
+        information to identify potential
+        heatwave conditions.
+      </p>
+
+      <a
+        href="prediction.html"
+        class="btn"
+        id="predictionFeatureBtn">
+
+        View Prediction
+
+      </a>
+
+    </article>
+
+
+    <!-- EARLY WARNING -->
+
+    <article class="card feature-card"
+             id="warningFeature">
+
+      <div class="feature-icon">
+        🚨
+      </div>
+
+      <h3>
+        Early Warning
+      </h3>
+
+      <p>
+        View risk levels and recommended
+        actions before extreme heat becomes
+        dangerous.
+      </p>
+
+      <a
+        href="warning.html"
+        class="btn"
+        id="warningFeatureBtn">
+
+        View Warnings
+
+      </a>
+
+    </article>
+
+
+    <!-- DASHBOARD -->
+
+    <article class="card feature-card"
+             id="dashboardFeature">
+
+      <div class="feature-icon">
+        📊
+      </div>
+
+      <h3>
+        Climate Dashboard
+      </h3>
+
+      <p>
+        View city temperatures, humidity,
+        heatwave risk and temperature trends.
+      </p>
+
+      <a
+        href="dashboard.html"
+        class="btn"
+        id="dashboardFeatureBtn">
+
+        Open Dashboard
+
+      </a>
+
+    </article>
+
+
+    <!-- ALERTS -->
+
+    <article class="card feature-card"
+             id="alertsFeature">
+
+      <div class="feature-icon">
+        ⚠️
+      </div>
+
+      <h3>
+        Heatwave Alerts
+      </h3>
+
+      <p>
+        View Green, Yellow, Orange and Red
+        heatwave risk levels.
+      </p>
+
+      <a
+        href="alerts.html"
+        class="btn"
+        id="alertsFeatureBtn">
+
+        View Alerts
+
+      </a>
+
+    </article>
+
+
+    <!-- USER ACCOUNT -->
+
+    <article class="card feature-card"
+             id="accountFeature">
+
+      <div class="feature-icon">
+        👤
+      </div>
+
+      <h3>
+        User Account
+      </h3>
+
+      <p>
+        Create an account and access your
+        personalised climate dashboard.
+      </p>
+
+      <div class="cta-row">
+
+        <a
+          href="login.html"
+          class="btn"
+          id="loginFeatureBtn">
+
+          Login
+
+        </a>
+
+        <a
+          href="signup.html"
+          class="btn secondary"
+          id="signupFeatureBtn">
+
+          Sign Up
+
+        </a>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- =========================================================
+       DASHBOARD PREVIEW
+  ========================================================== -->
+
+  <section class="dashboard-section">
+
+    <div class="card">
+
+      <h2>
+        Live Climate Overview
+      </h2>
+
+      <p>
+        Sample climate conditions monitored
+        by the platform.
+      </p>
+
+      <div class="dashboard-preview">
+
+
+        <article class="card stat-card"
+                 id="mumbaiStat">
+
+          <h3>
+            Mumbai
+          </h3>
+
+          <span class="number">
+            39°C
+          </span>
+
+          <p>
+            Humidity: 62%
+          </p>
+
+          <strong class="risk-medium">
+            High Risk
+          </strong>
+
+        </article>
+
+
+        <article class="card stat-card"
+                 id="delhiStat">
+
+          <h3>
+            Delhi
+          </h3>
+
+          <span class="number">
+            42°C
+          </span>
+
+          <p>
+            Humidity: 38%
+          </p>
+
+          <strong class="risk-high">
+            Extreme Risk
+          </strong>
+
+        </article>
+
+
+        <article class="card stat-card"
+                 id="bengaluruStat">
+
+          <h3>
+            Bengaluru
+          </h3>
+
+          <span class="number">
+            34°C
+          </span>
+
+          <p>
+            Humidity: 58%
+          </p>
+
+          <strong class="risk-low">
+            Low Risk
+          </strong>
+
+        </article>
+
+
+      </div>
+
+      <div class="cta-row">
+
+        <a
+          href="dashboard.html"
+          class="btn"
+          id="fullDashboardBtn">
+
+          View Full Dashboard
+
+        </a>
+
+        <a
+          href="alerts.html"
+          class="btn secondary"
+          id="viewAlertsBtn">
+
+          View Risk Alerts
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       HOW IT WORKS
+  ========================================================== -->
+
+  <section class="workflow">
+
+    <div class="card">
+
+      <h2>
+        How Climate Intelligence Works
+      </h2>
+
+      <p>
+        The platform follows four major stages
+        to convert climate information into
+        actionable heatwave warnings.
+      </p>
+
+      <div class="workflow-grid">
+
+
+        <article class="workflow-step"
+                 id="monitorStep">
+
+          <div class="workflow-number">
+            01
+          </div>
+
+          <h3>
+            Monitor
+          </h3>
+
+          <p>
+            Collect temperature, humidity and
+            environmental information.
+          </p>
+
+        </article>
+
+
+        <article class="workflow-step"
+                 id="analyseStep">
+
+          <div class="workflow-number">
+            02
+          </div>
+
+          <h3>
+            Analyse
+          </h3>
+
+          <p>
+            Analyse current conditions and
+            compare them with historical patterns.
+          </p>
+
+        </article>
+
+
+        <article class="workflow-step"
+                 id="predictStep">
+
+          <div class="workflow-number">
+            03
+          </div>
+
+          <h3>
+            Predict
+          </h3>
+
+          <p>
+            Estimate the probability and severity
+            of upcoming heatwave conditions.
+          </p>
+
+        </article>
+
+
+        <article class="workflow-step"
+                 id="warnStep">
+
+          <div class="workflow-number">
+            04
+          </div>
+
+          <h3>
+            Warn
+          </h3>
+
+          <p>
+            Convert climate risk information
+            into understandable warning levels.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       ACCOUNT CTA
+  ========================================================== -->
+
+  <section class="account-section">
+
+    <div class="card account-card">
+
+      <h2>
+        Access Your Climate Dashboard
+      </h2>
+
+      <p>
+        Sign in to monitor climate conditions,
+        view heatwave risk information and
+        explore the dashboard.
+      </p>
+
+      <div class="cta-row"
+           style="justify-content:center;">
+
+        <a
+          href="login.html"
+          class="btn"
+          id="loginDashboardBtn">
+
+          Login to Dashboard
+
+        </a>
+
+        <a
+          href="signup.html"
+          class="btn secondary"
+          id="createAccountBtn">
+
+          Create Account
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
   <footer class="footer">
-    <p>Prepared for DiM Experiment No. 01 — Website building and hosting it.</p>
+
+    <p>
+      Climate Intelligence for Heatwave Monitoring,
+      Prediction, and Early Warning
+    </p>
+
+    <p>
+      Prepared for DiM Experiment No. 01 —
+      Website Building and Hosting
+    </p>
+
+    <p>
+      <a href="monitoring.html">
+        Monitoring
+      </a>
+      |
+      <a href="prediction.html">
+        Prediction
+      </a>
+      |
+      <a href="warning.html">
+        Early Warning
+      </a>
+      |
+      <a href="dashboard.html">
+        Dashboard
+      </a>
+      |
+      <a href="alerts.html">
+        Alerts
+      </a>
+      |
+      <a href="login.html">
+        Login
+      </a>
+    </p>
+
   </footer>
+
+
 </body>
 </html>
