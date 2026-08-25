@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /KJS-CES-01/login.html
+Disallow: /KJS-CES-01/signup.html
+Disallow: /KJS-CES-01/profile.html
+
+Sitemap: https://adityachunarkar.github.io/KJS-CES-01/sitemap.xml
